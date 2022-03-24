@@ -1,4 +1,4 @@
-import {Text, View, StyleSheet, ScrollView} from 'react-native';
+import {Text, View, StyleSheet, ScrollView, RefreshControl} from 'react-native';
 import React, {useState} from 'react';
 import {Input, Button} from 'react-native-elements';
 import axios from 'axios';
@@ -20,6 +20,16 @@ export default function Register({navigation}) {
 
   const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+
+  const [refreshing, setRefreshing] = useState(false);
+
+  const onRefresh = () =>{
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false)
+      
+    }, 2000);
+  }
 
   const postRegister = async () => {
     // Cek inputan kosong
@@ -103,7 +113,14 @@ export default function Register({navigation}) {
   }
 
   return (
-    <ScrollView style={styles.containner}>
+    <ScrollView 
+    refreshControl={
+      <RefreshControl 
+        refreshing={refreshing}
+        onRefresh={onRefresh}
+      />
+    }
+    style={styles.containner}>
       <Text style={styles.topic}>Registration</Text>
       <Input
         style={{color: 'white'}}

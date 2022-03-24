@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, FlatList,Image } from 'react-native'
+import { View, Text, TouchableOpacity, FlatList,Image} from 'react-native'
 import React from 'react'
 import axios from 'axios'
 import { BaseUrl} from '../../helpers/API'
