@@ -4,6 +4,7 @@ import axios from 'axios'
 import { BaseUrl} from '../../helpers/API'
 import { useState, useEffect } from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import { moderateScale } from 'react-native-size-matters'
 
 export default function Home({navigation}) {
 
@@ -28,7 +29,7 @@ export default function Home({navigation}) {
       <TouchableOpacity onPress={() => navigation.navigate('DetailMovie',{movieId : item.id})}>
         <Image 
           source={{uri: `${item.poster_path}`}}
-          style={{height: 160, width: 110, borderRadius: 5, marginRight:7}}
+          style={{height: moderateScale(160), width: moderateScale(110), borderRadius: moderateScale(5), marginRight:moderateScale(7)}}
         />
       </TouchableOpacity>
     )
@@ -38,38 +39,38 @@ export default function Home({navigation}) {
     return (
       <View 
         style={{
-          marginBottom: 10,
+          marginBottom: moderateScale(10),
           flexDirection: 'row',
           alignItems: 'flex-start',
           borderColor: '#470D21',
-          borderRadius: 10,
-          elevation: 3,
-          padding: 10,
+          borderRadius: moderateScale(10),
+          elevation: moderateScale(3),
+          padding: moderateScale(10),
           backgroundColor: '#fff'
         }}>
         <Image
           source={{uri: `${item.poster_path}`}}
-          style={{height: 100, width: 100, borderRadius: 5}}
+          style={{height: moderateScale(100), width: moderateScale(100), borderRadius: moderateScale(5)}}
         />
-        <View style={{marginHorizontal: 10, flex: 1}}>
+        <View style={{marginHorizontal: moderateScale(10), flex: 1}}>
           <Text
             style={{
-              fontSize: 18,
+              fontSize: moderateScale(18),
               fontWeight: 'bold',
               alignSelf: 'flex-start',
             }}>
             {item.title}
           </Text>
-          <View style={{ marginTop: 5, flexDirection:'row' }}>
-              <Ionicons color={'#eeb64a'} name='star' size={15}/>
-              <Text style={{marginLeft:2, fontSize: 12}}>
+          <View style={{ marginTop: moderateScale(5), flexDirection:'row' }}>
+              <Ionicons color={'#eeb64a'} name='star' size={moderateScale(15)}/>
+              <Text style={{marginLeft:moderateScale(2), fontSize: moderateScale(12)}}>
                 {item.vote_average}/10
               </Text>
             </View>
           <Text
             style={{
-              fontSize: 12,
-              marginTop: 5,
+              fontSize: moderateScale(12),
+              marginTop: moderateScale(5),
               textAlign: 'auto',    
             }}>
             Realeased : {item.release_date}
@@ -77,13 +78,13 @@ export default function Home({navigation}) {
           <TouchableOpacity
             onPress={() => navigation.navigate('DetailMovie',{movieId : item.id})}
             style={{
-              fontSize: 12,
-              marginTop: 5,
+              fontSize: moderateScale(12),
+              marginTop: moderateScale(5),
               alignContent: 'center',
               justifyContent: 'center',
-              width: 80,
-              height: 30,
-              borderRadius: 5,
+              width: moderateScale(80),
+              height: moderateScale(30),
+              borderRadius: moderateScale(5),
               backgroundColor: '#649DFF'
             }}
           >
@@ -97,12 +98,12 @@ export default function Home({navigation}) {
 
   return (
     <View style={{flex: 1, backgroundColor: '#fff'}}>
-      <View style={{margin: 10}}>
-        <Text style={{fontSize: 18, fontWeight:'bold', color: '#4C0027'}}>
+      <View style={{margin: moderateScale(10)}}>
+        <Text style={{fontSize: moderateScale(18), fontWeight:'bold', color: '#4C0027'}}>
           Recommended
         </Text>
       </View>
-      <View style={{ marginHorizontal: 10, marginBottom:10 }}>
+      <View style={{ marginHorizontal: moderateScale(10), marginBottom:moderateScale(10) }}>
         <FlatList
           horizontal
           data={listMovie}
@@ -110,12 +111,12 @@ export default function Home({navigation}) {
           renderItem={PosterMovie}
         />
       </View>
-      <View style={{margin: 10}}>
-        <Text style={{fontSize: 18, fontWeight:'bold', color: '#4C0027'}}>
+      <View style={{margin: moderateScale(10)}}>
+        <Text style={{fontSize: moderateScale(18), fontWeight:'bold', color: '#4C0027'}}>
           Latest Upload
         </Text>
       </View>
-      <View style={{ marginHorizontal: 10 }}>
+      <View style={{ marginHorizontal: moderateScale(10) }}>
         <FlatList
           data={listMovie}
           keyExtractor={(item, index) => index}

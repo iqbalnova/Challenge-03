@@ -4,6 +4,7 @@ import {Input, Button} from 'react-native-elements';
 import axios from 'axios';
 import {BaseUrlApi} from '../../helpers/API';
 import LottieView from 'lottie-react-native';
+import { moderateScale } from 'react-native-size-matters';
 
 
 export default function Register({navigation}) {
@@ -152,11 +153,11 @@ export default function Register({navigation}) {
       <View
         style={{
           width: '100%',
-          height: 50,
+          height: moderateScale(50),
           alignItems: 'center',
           justifyContent: 'center',
-          marginTop: 20,
-          marginBottom: 50,
+          marginTop: moderateScale(20),
+          marginBottom: moderateScale(50),
         }}>
         <Button onPress={postRegister} title={'Sign Up'} />
       </View>
@@ -169,15 +170,15 @@ const styles = StyleSheet.create({
     flex: 1,
     alignSelf: 'stretch',
     backgroundColor: '#16514e',
-    paddingLeft: 20,
-    paddingRight: 20,
+    paddingLeft: moderateScale(20),
+    paddingRight: moderateScale(20),
   },
   topic: {
     fontSize: 24,
     color: '#FFF',
-    paddingTop: 20,
-    marginBottom: 30,
+    paddingTop: moderateScale(20),
+    marginBottom: moderateScale(30),
     borderBottomColor: '#EEF2FF',
-    borderBottomWidth: 1,
+    borderBottomWidth: moderateScale(1),
   },
 });

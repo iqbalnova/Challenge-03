@@ -4,6 +4,7 @@ import {Input, Button} from 'react-native-elements';
 import axios from 'axios';
 import {BaseUrlApi} from '../../helpers/API';
 import LottieView from 'lottie-react-native';
+import { moderateScale } from 'react-native-size-matters';
 
 
 export default function Login({navigation}) {
@@ -21,8 +22,8 @@ export default function Login({navigation}) {
       try {
         setLoading(true);
         const body = {
-          username: username,
-          password: password,
+          username: username, // mor_2314
+          password: password, // 83r5^_
         };
   
         const res = await axios.post(`${BaseUrlApi}/auth/login`, body, {
@@ -61,12 +62,12 @@ export default function Login({navigation}) {
       <ImageBackground
         source={require('../../img/backgroundLogin.jpg')}
         style={{flex: 1, resizeMode: 'contain', justifyContent: 'center'}}>
-        <View style={{marginTop: -150}}>
+        <View style={{marginTop: moderateScale(-150)}}>
           <Text
             style={{
-              margin: 20,
+              margin: moderateScale(20),
               textAlign: 'center',
-              fontSize: 50,
+              fontSize: moderateScale(50),
               fontWeight: 'bold',
               color: '#5D8BF4',
             }}>
@@ -74,18 +75,18 @@ export default function Login({navigation}) {
           </Text>
           <View
             style={{
-              margin: 10,
+              margin: moderateScale(10),
               alignContent: 'center',
               justifyContent: 'center',
             }}>
             <Input
-              style={{height: 50, color: 'white'}}
+              style={{height: moderateScale(50), color: 'white'}}
               label="Username"
               placeholder=" "
               onChangeText={text => setUsername(text)}
             />
             <Input
-              style={{height: 50, color: 'white'}}
+              style={{height: moderateScale(50), color: 'white'}}
               label="Password"
               placeholder=" "
               onChangeText={text => setPassword(text)}
@@ -95,19 +96,19 @@ export default function Login({navigation}) {
           <View
             style={{
               width: '100%',
-              height: 50,
+              height: moderateScale(50),
               alignItems: 'center',
               justifyContent: 'center',
-              marginTop: 10,
-              marginBottom: 10,
+              marginTop: moderateScale(10),
+              marginBottom: moderateScale(10),
             }}>
             <TouchableOpacity>
               <Text
                 style={{
                   color: 'white',
-                  fontSize: 11,
-                  marginTop: 5,
-                  marginBottom: 25,
+                  fontSize: moderateScale(11),
+                  marginTop: moderateScale(5),
+                  marginBottom: moderateScale(25),
                 }}>
                 Forget Password?
               </Text>
@@ -115,7 +116,7 @@ export default function Login({navigation}) {
 
             <Button onPress={postLogin} title={'Sign in'} />
             <TouchableOpacity
-              style={{marginVertical: 10}}
+              style={{marginVertical: moderateScale(10)}}
               onPress={() => navigation.navigate('Register')}>
               <Text style={{color: 'white'}}>SignUp</Text>
             </TouchableOpacity>
